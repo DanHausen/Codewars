@@ -5,12 +5,22 @@ def persistence(n):
     while len(res) > 1:
         for i in res:
             number *= i
-            print(number)            
         res.clear()
-        res.append(number) 
+        res = [int(x) for x in str(number)]
+        number = 1 
         times+=1
+        print(times)
     return times
     
-#Está dando erro pois ao limpar o 'res', o apend adiciona o numero por completo e não cada digito. E já que é um array, seu tamanho será 1, então o while é finalizado
-    
 persistence(39)
+
+# Smart practices:
+# import operator
+# def persistence(n):
+#     i = 0
+#     while n>=10:
+#         n=reduce(operator.mul,[int(x) for x in str(n)],1)
+#         i+=1
+#     return i
+
+# persistence = lambda n,c=0: persistence(reduce(lambda x,y:int(x)*int(y),str(n)),c+1) if n >=10 else c
