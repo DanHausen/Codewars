@@ -1,11 +1,12 @@
 def tribonacci(signature, n):
-    list = []
     index = 0
-    for i in signature:
-        if len(list) >= 3:
-            sum = list[i] + list[i-1] + list[i-2]
-            list.append(sum)
-        else:
-            list.append(i)
-        index += 1
-    return list
+    if n < 1:
+        return []
+    if n < len(signature):
+        return signature[0:n]
+    seq = signature[:]
+    while index < n:
+        add = sum(seq[index:index+3])
+        seq.append(add)
+        index+=1
+    return seq[0:n]
