@@ -6,6 +6,48 @@ public class Kata
 {
   public static string Rot13(string message)
   {
-    // your code here
+    char[] array = message.ToCharArray();
+    for(int i = 0;i<array.Length;i++){
+      int number = (int)array[i];
+      if(number >= 'a' && number <= 'z'){
+        if(number > 'm') number -= 13;
+        else number += 13;        
+      }
+      else if(number >= 'A' && number <= 'Z'){
+        if(number > 'M') number -= 13;
+        else number += 13;
+      }
+      array[i]=(char)number;
+    }
+    return new string(array);
   }
 }
+
+//BEST PRACTICES:
+// using System;
+// using System.Linq;
+// public class Kata
+// {
+//   public static string Rot13(string message)
+//   {
+//      return String.Join("", message.Select(x => char.IsLetter(x) ? (x >= 65 && x <= 77) || (x >= 97 && x <= 109) ? (char)(x + 13) : (char)(x - 13) : x));
+//   }
+// }
+
+// using System;
+// public class Kata
+// {
+//   public static string Rot13(string message)
+//   {
+//     string result = "";
+//             foreach (var s in message)
+//             {
+//                 if ((s >= 'a' && s <= 'm') || (s >= 'A' && s <= 'M'))
+//                     result += Convert.ToChar((s + 13)).ToString();
+//                 else if ((s >= 'n' && s <= 'z') || (s >= 'N' && s <= 'Z'))
+//                     result += Convert.ToChar((s - 13)).ToString();
+//                 else result += s;
+//             }
+//             return result;
+//   }
+// }
