@@ -15,13 +15,6 @@ public class Parentheses
 {
     public static bool ValidParentheses(string input)
     {
-      char[] list = input.ToCharArray();
-      bool condition = false;
-      for (int i = 0; i<list.Length;i++){
-        if(i <= list.Length && list[i] == '('){
-          
-        }
-      }
-      return true ? list.Length % 2 == 0 && : false;
+      return true ? input.Length % 2 == 0 : false;
     }
 }
