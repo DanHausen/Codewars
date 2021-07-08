@@ -11,17 +11,61 @@
 
 // Along with opening (() and closing ()) parenthesis, input may contain any valid ASCII characters. Furthermore, the input string may be empty and/or not contain any parentheses at all. Do not treat other forms of brackets as parentheses (e.g. [], {}, <>).
 
-public class Parentheses
-{
-    public static bool ValidParentheses(string input)
-    {
-      if(input.Length % 2 == 0){
-        char[] list = input.ToCharArray();
-        for(int i = 0; i < list.Length; i++){
-        }
-      }
-      else{
-        return false;
-      }
-    }
-}
+
+// //BEST PRACTICES:
+// public class Parentheses
+// {
+//     public static bool ValidParentheses(string input)
+//     {
+//         int parentheses = 0;
+//         foreach (char t in input)
+//         {
+//             if (t == '(')
+//             {
+//                 parentheses++;
+//             }
+//             else if (t == ')')
+//             {
+//                 parentheses--;
+
+//                 if (parentheses < 0)
+//                 {
+//                     return false;
+//                 }
+//             }
+//         }
+
+//         return parentheses == 0;
+//     }
+// }
+
+
+// using System.Linq;
+// public class Parentheses
+// {
+//   public static bool ValidParentheses(string input)
+//   {
+//     input = string.Concat(input.Where(x => "()".Contains(x)));
+//     while (input.Contains("()"))
+//     {
+//       input = input.Replace("()", "");
+//     }
+    
+//     return !input.Any();
+//   }
+// }
+
+
+// public class Parentheses
+// {
+//     public static bool ValidParentheses(string input)
+//     {
+//       int numOpen = 0;
+//       for(int i = 0; i < input.Length; i++){
+//         if(input[i] == '(') numOpen++;
+//         if(input[i] == ')') numOpen--;
+//         if(numOpen < 0) return false;
+//       }
+//       return (numOpen == 0);
+//     }
+// }
