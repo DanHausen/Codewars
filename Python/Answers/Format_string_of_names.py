@@ -14,3 +14,6 @@
 # # returns ''
 # Note: all the hashes are pre-validated and will only contain A-Z, a-z, '-' and '.'.
 
+def namelist(names):
+    for i in names:
+        return i['name']
