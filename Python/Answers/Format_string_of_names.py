@@ -15,5 +15,26 @@
 # Note: all the hashes are pre-validated and will only contain A-Z, a-z, '-' and '.'.
 
 def namelist(names):
-    for i in names:
-        return i['name']
+    str = ''
+    if len(names) != 0:
+        array = []
+        for i in range(0,len(names) -1):
+            array.append(names[i]['name'])
+        str = ', '.join(array)
+        str += ' & ' + names[-1]['name'] if str != '' else names[-1]['name']
+    return str
+    
+#BEST PRACTICES:
+
+# def namelist(names):
+#     if len(names) > 1:
+#         return '{} & {}'.format(', '.join(name['name'] for name in names[:-1]), 
+#                                 names[-1]['name'])
+#     elif names:
+#         return names[0]['name']
+#     else:
+#         return ''
+        
+        
+# def namelist(names):
+#   return ", ".join([name["name"] for name in names])[::-1].replace(",", "& ",1)[::-1]
