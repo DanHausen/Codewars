@@ -6,5 +6,9 @@
 # domain_name("http://www.zombie-bites.com") == "zombie-bites"
 # domain_name("https://www.cnet.com") == "cnet"
 
+#TODO
+from urllib.parse import urlparse
+
 def domain_name(url):
-    pass
+    domain = urlparse(url).netloc
+    return domain
