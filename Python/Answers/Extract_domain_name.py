@@ -6,9 +6,45 @@
 # domain_name("http://www.zombie-bites.com") == "zombie-bites"
 # domain_name("https://www.cnet.com") == "cnet"
 
-#TODO
-from urllib.parse import urlparse
-
+#np
 def domain_name(url):
-    domain = urlparse(url).netloc
-    return domain
+    listUrl = []
+    bool = False
+    str = ''
+    for i in url:
+        if bool == True:
+            if i == '.':
+                break
+            listUrl.append(i)
+        if i == '.' or i == '/':
+            bool = True
+    if listUrl[0] == '/':
+        del listUrl[0]
+    for i in listUrl:
+        str += i
+    return str
+    
+##BEST PRACTICES:
+# def domain_name(url):
+#     return url.split("//")[-1].split("www.")[-1].split(".")[0]
+    
+# import re
+# def domain_name(url):
+#     return re.search('(https?://)?(www\d?\.)?(?P<name>[\w-]+)\.', url).group('name')
+    
+# def domain_name(url):
+#     url = url.replace('www.','')
+#     url = url.replace('https://','')
+#     url = url.replace('http://','')
+    
+#     return url[0:url.find('.')]
+    
+# def domain_name(url):
+#     return url.split("://")[-1].split(".")[-2]
+    
+# def domain_name(url):
+#     url = url.split('//')[-1]
+#     url = url.split('/')[0]
+#     url = url.split('.')[-2]
+#     return url
+
