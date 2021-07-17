@@ -16,10 +16,10 @@
 #TODO
 def tickets(people):
     cash = 0
-    price = 25
-    if people[0] != 25:
-        return "NO"
     for i in people:
-        cash += i
-        cash -= price
-    return "?"
+        if i == 25:
+            cash += i
+        elif i - cash != 0:
+            return "NO"
+        else: 
+            return "YES"
