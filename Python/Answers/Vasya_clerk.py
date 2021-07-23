@@ -15,15 +15,16 @@
 
 def tickets(people):
     print(people)
-    cash = 0
     price = 25
+    ticket25 = 0
+    ticket50 = 0
+    ticket100 = 0
+    
     for i in people:
-        if i > price:
-            if i - price > cash:
-                return "NO"
-            else:
-                cash = cash - (i-price)
-                print(cash)
-        else:
-            cash += i
-    return "YES"
+        if i == price:
+            ticket25 += 1
+        elif i == price * 2 and ticket25 > 0:
+            ticket50 += 1
+            ticket25 -= 1
+        elif i == price * 4:
+            ticket100 += 1
